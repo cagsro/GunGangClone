@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    RaycastHit obj;
     public Transform firePosition;
     public GameObject clone;
     public GameObject bullet;
+    public Rigidbody cloneRB;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +17,18 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
     }
     void Shoot()    
     {
         clone= Instantiate(bullet, firePosition.position, firePosition.rotation);
-        clone.GetComponent<Rigidbody>().AddForce(clone.transform.forward*3000f);
+        //clone.GetComponent<Rigidbody>().AddForce(clone.transform.forward*3000f);
+        cloneRB=clone.GetComponent<Rigidbody>();
+        cloneRB.AddForce(clone.transform.forward*3000f);
         Destroy(clone.gameObject,3f);
         /*if (Physics.Raycast(firePosition.transform.position, firePosition.transform.forward, out obj, 20f))
         {   
-            Debug.Log("Ateþ edildi");
+            Debug.Log("Ates edildi");
             if (obj.transform.tag == "barrel")
             {
                 Debug.Log("Barrel");
