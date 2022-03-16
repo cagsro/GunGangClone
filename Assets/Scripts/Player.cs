@@ -8,22 +8,35 @@ public class Player : MonoBehaviour
     public GameObject clone;
     public GameObject bullet;
     public Rigidbody cloneRB;
-
-    public GameObject playerParent;
-    private Vector3 endPosition =new Vector3(1f,0f,0f);
-    public bool OnGround=false;
+    public GameObject playerWaitPos;
+    private Vector3 endPosition =new Vector3(0f,0.5f,-1f);
+    public float distance;
+    public bool OnWaitPos;
+    public float speed=1f;
+    public Animator playerAnimator;
+    
     // Start is called before the first frame update
     void Start()
     {
+        playerAnimator=GetComponent<Animator>();
         InvokeRepeating("Shoot", 0f,1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(OnGround)
+        if(FinishPad.isGameEnded)
         {
-            this.transform.localPosition=Vector3.Lerp(this.transform.localPosition,endPosition,Time.deltaTime);
+            speed=4f;
+            this.transform.SetParent(playerWaitPos.transform);
+            this.transform.localPosition=Vector3.Lerp(this.transform.localPosition,endPosition,Time.deltaTime*speed);
+        }
+        distance=Vector3.Distance(this.transform.position,playerWaitPos.transform.position);
+        if(distance<1.9f && !OnWaitPos)
+        {
+            Debug.Log(distance);
+            OnWaitPos=true;
+            playerAnimator.SetTrigger("Idle");
         }
     }
     void Shoot()    
@@ -31,7 +44,7 @@ public class Player : MonoBehaviour
         clone= Instantiate(bullet, firePosition.position, firePosition.rotation);
         cloneRB=clone.GetComponent<Rigidbody>();
         cloneRB.AddForce(clone.transform.forward*3000f);
-        Destroy(clone.gameObject,3f); 
+        Destroy(clone.gameObject,0.4f); 
     }
     void OnDrawGizmos()
     {
@@ -40,15 +53,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "enemy")
-        {
-            Debug.Log("SetParent");
-            other.transform.SetParent(playerParent.transform);
-            OnGround=true;
-            other.transform.rotation=Quaternion.Euler(0f,0f,0f);
-            other.transform.tag="Player";
-            other.GetComponent<Player>().enabled=true;
-        }
+        
         if (other.transform.tag == "barrel")
         {
             Debug.Log("Barrel");

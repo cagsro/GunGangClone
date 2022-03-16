@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        if(!FinishPad.isGameEnded)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }  
 
         if(Input.GetMouseButtonDown(0))
         {
@@ -49,4 +52,5 @@ public class PlayerController : MonoBehaviour
             }
         }*/
     }
+    
 }
