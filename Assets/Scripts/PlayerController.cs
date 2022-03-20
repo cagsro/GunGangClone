@@ -17,10 +17,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!FinishPad.isGameEnded)
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        if (FinishPad.isGameEnded)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }  
+            speed = 0;
+        }
 
         if(Input.GetMouseButtonDown(0))
         {
@@ -28,9 +29,10 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetMouseButton(0))
         {
-            endPos=Input.mousePosition;
+            endPos = Input.mousePosition;
             float farkX=endPos.x-firstPos.x;
-            transform.Translate(farkX*speedModifier, 0, 0 );
+            transform.Translate(farkX * speedModifier, 0, 0 );
+            Debug.Log(Input.mousePosition);
         }
         if(Input.GetMouseButtonUp(0))
         {

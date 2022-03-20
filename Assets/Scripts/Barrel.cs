@@ -31,14 +31,7 @@ public class Barrel : MonoBehaviour
         {
             Destroy(barrel.gameObject);
         }
-        /*if(health<=0)
-        {
-            barrel.transform.localScale=Vector3.Lerp(barrel.transform.localScale,new Vector3(1.5f,0f,1.5f),Time.deltaTime);
-            if(barrel.transform.localScale.y<=0.2f)
-            {
-                Destroy(barrel.gameObject);
-            } 
-        }*/
+
     }
     public void TakeDamage()
     {
@@ -54,10 +47,9 @@ public class Barrel : MonoBehaviour
         }
         if (other.transform.tag == "Player")
         {
+            WaitPos.instance.enemyList.Remove(other.gameObject);
             Debug.Log("Barrel");
             Destroy(other.gameObject);
         }
     }
 }
-/*lerpValue=1f-(currentHealth/maxHealth);
-        barrel.transform.localScale=Vector3.Lerp(new Vector3(1.5f,0.75f,1.5f),new Vector3(1.5f,0f,1.5f),lerpValue);*/

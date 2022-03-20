@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Rigidbody cloneRB;
     public GameObject playerWaitPos;
-    private Vector3 endPosition =new Vector3(0f,0.5f,-1f);
+    private Vector3 endPosition =new Vector3(0f,0.5f,0.3f);
     public float distance;
     public bool OnWaitPos;
     public float speed=1f;
