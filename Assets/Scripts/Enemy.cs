@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public bool OnWaitPos;
     public float speed=1f;
     public Animator enemyAnimator;
+    public float enemyHealth=5;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
                 this.transform.SetParent(enemyWaitPos.transform);
                 speed=4f;
                 distance = Vector3.Distance(this.transform.position, enemyWaitPos.transform.position);
-                Debug.Log("Mesafe "+distance);
+                //Debug.Log("Mesafe "+distance);
 
             }
             this.transform.localPosition=Vector3.Lerp(this.transform.localPosition,endPosition,Time.deltaTime*speed);
@@ -86,7 +87,7 @@ public class Enemy : MonoBehaviour
     }
     public void script()
     {
-        Debug.Log("SetParent");
+        //Debug.Log("SetParent");
         playerParent = GameObject.Find("Player");
         this.transform.SetParent(playerParent.transform);
         isParent = true;
@@ -96,6 +97,15 @@ public class Enemy : MonoBehaviour
         enemyAnimator.SetTrigger("Walk");
         InvokeRepeating("Shoot", 0f, 1f);
         WaitPos.instance.enemyList.Add(this.gameObject);
+    }
+    public void TakeDamage()
+    {
+        enemyHealth--;
+        if(enemyHealth<=0)
+        {
+            Destroy(this.gameObject);
+            WaitPos.instance.enemyList.Remove(this.gameObject);
+        }
     }
     
 

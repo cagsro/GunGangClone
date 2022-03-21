@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
             playerAnimator.SetTrigger("Idle");
         }
     }
-    void Shoot()    
+    void Shoot()
     {
         clone= Instantiate(bullet, firePosition.position, firePosition.rotation);
         cloneRB=clone.GetComponent<Rigidbody>();

@@ -50,13 +50,16 @@ public class Gate : MonoBehaviour
             {
                 for (int i = 0; i < value; i++)
                 {
-                    Destroy(WaitPos.instance.enemyList[i].gameObject);
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().speed=0f;
+                    WaitPos.instance.enemyList[i].transform.parent=null;
+                    WaitPos.instance.enemyList[i].GetComponent<Animator>().SetTrigger("Fall");
+                    Destroy(WaitPos.instance.enemyList[i].gameObject,1.5f);
                     WaitPos.instance.enemyList.RemoveAt(i);
                 }
             }
             if (operation == "*")
             {
-                int x = (value - 1) * (WaitPos.instance.enemyList.Count + 1);
+                int x = (value - 1) * (WaitPos.instance.enemyList.Count);
                 int zPos = +2;
                 int xPos = -1;
                 for (int i = 0; i < x; i++)
@@ -74,11 +77,14 @@ public class Gate : MonoBehaviour
             }
             if (operation == "/")
             {
-                int x = (WaitPos.instance.enemyList.Count + 1) - ((WaitPos.instance.enemyList.Count + 1) / value);
-                Debug.Log("bölme" + x);
+                int x = (WaitPos.instance.enemyList.Count) - ((WaitPos.instance.enemyList.Count) / value);
+                Debug.Log("bï¿½lme" + x);
                 for (int i = 0; i < x; i++)
                 {
-                    Destroy(WaitPos.instance.enemyList[i].gameObject);
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().speed=0f;
+                    WaitPos.instance.enemyList[i].GetComponent<Animator>().SetTrigger("Fall");
+                    WaitPos.instance.enemyList[i].transform.parent=null;
+                    Destroy(WaitPos.instance.enemyList[i].gameObject,1.5f);
                     WaitPos.instance.enemyList.RemoveAt(i);
                 }
             }

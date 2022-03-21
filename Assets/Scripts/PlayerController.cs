@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             endPos = Input.mousePosition;
             float farkX=endPos.x-firstPos.x;
             transform.Translate(farkX * speedModifier, 0, 0 );
-            Debug.Log(Input.mousePosition);
+            //Debug.Log(Input.mousePosition);
         }
         if(Input.GetMouseButtonUp(0))
         {

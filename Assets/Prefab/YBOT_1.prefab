@@ -479,6 +479,7 @@ MonoBehaviour:
   OnWaitPos: 0
   speed: 1
   enemyAnimator: {fileID: 0}
+  enemyHealth: 5
 --- !u!1 &2339170481343843941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,16 +1373,16 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1152439916726096503, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -4035137881761584137, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -8516121517230340641, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -8108050154573044212, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 8108125881065328696, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 3170531198488047425, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -3743634840507758418, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 6247021370128362802, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -1625185324143082723, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 3498555632019112618, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
+  - {fileID: 2100000, guid: 510bc32de02e5f64f9011895f9e6c4fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
