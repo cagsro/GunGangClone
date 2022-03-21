@@ -48,7 +48,7 @@ public class Gate : MonoBehaviour
             }
             if (operation == "-")
             {
-                for (int i = 0; i < value; i++)
+                for (int i = 1; i <= value; i++)
                 {
                     WaitPos.instance.enemyList[i].GetComponent<Enemy>().speed=0f;
                     WaitPos.instance.enemyList[i].transform.parent=null;
@@ -79,7 +79,7 @@ public class Gate : MonoBehaviour
             {
                 int x = (WaitPos.instance.enemyList.Count) - ((WaitPos.instance.enemyList.Count) / value);
                 Debug.Log("b�lme" + x);
-                for (int i = 0; i < x; i++)
+                for (int i = 1; i <= x; i++)
                 {
                     WaitPos.instance.enemyList[i].GetComponent<Enemy>().speed=0f;
                     WaitPos.instance.enemyList[i].GetComponent<Animator>().SetTrigger("Fall");

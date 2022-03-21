@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
+  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6330,7 +6330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d44b9b58f3604a4b9212587638f587d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyList: []
+  enemyList:
+  - {fileID: 1827343994}
   waitPos:
   - {fileID: 1638830150}
   - {fileID: 1854628289}
@@ -9025,6 +9026,7 @@ MonoBehaviour:
   distance: 0
   OnWaitPos: 0
   speed: 1
+  playerHealth: 5
   playerAnimator: {fileID: 0}
 --- !u!136 &1827344000
 CapsuleCollider:

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float distance;
     public bool OnWaitPos;
     public float speed=1f;
+    public float playerHealth = 5f;
     public Animator playerAnimator;
     
     // Start is called before the first frame update
@@ -44,7 +45,8 @@ public class Player : MonoBehaviour
         clone= Instantiate(bullet, firePosition.position, firePosition.rotation);
         cloneRB=clone.GetComponent<Rigidbody>();
         cloneRB.AddForce(clone.transform.forward*3000f);
-        Destroy(clone.gameObject,0.4f); 
+        Destroy(clone.gameObject,0.4f);
+
     }
     void OnDrawGizmos()
     {
@@ -58,6 +60,15 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Barrel");
             Destroy(this.gameObject);
+        }
+    }
+    public void TakeDamage()
+    {
+        playerHealth--;
+        if(playerHealth<=0)
+        {
+            Destroy(this.gameObject);
+            WaitPos.instance.enemyList.Remove(this.gameObject);
         }
     }
 }

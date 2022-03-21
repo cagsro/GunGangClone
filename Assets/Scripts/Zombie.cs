@@ -83,7 +83,15 @@ public class Zombie : MonoBehaviour
         timer = 0f;
         if(targetEnemy)
         {
-            targetEnemy.gameObject.GetComponent<Enemy>().TakeDamage();
+            if(targetEnemy.gameObject.GetComponent<Enemy>())
+            {
+                targetEnemy.gameObject.GetComponent<Enemy>().TakeDamage();
+            }
+            else 
+            {
+                targetEnemy.gameObject.GetComponent<Player>().TakeDamage();
+            }
+            
         }  
     }
 

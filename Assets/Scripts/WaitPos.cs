@@ -30,8 +30,18 @@ public class WaitPos : MonoBehaviour
             Debug.Log("Foreach");
             foreach (GameObject enemy in enemyList)
             {
-                enemy.GetComponent<Enemy>().enemyWaitPos = waitPos[j];
-                j++;
+                if(enemy.GetComponent<Enemy>())
+                {
+                    enemy.GetComponent<Enemy>().enemyWaitPos = waitPos[j];
+                    j++;
+                }
+                else 
+                {
+                    enemy.GetComponent<Player>().playerWaitPos= waitPos[j];
+                    j++;
+                }
+                /*enemy.GetComponent<Enemy>().enemyWaitPos = waitPos[j];
+                j++;*/
             }
         }
 

@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
             if(FinishPad.isGameEnded)
             {
                 WaitPos.instance.SetWaitPos();
+
                 this.GetComponent<Rigidbody>().isKinematic=true;
                 this.GetComponent<CapsuleCollider>().enabled=false;
                 this.transform.SetParent(enemyWaitPos.transform);
