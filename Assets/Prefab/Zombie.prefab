@@ -519,11 +519,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2865922444508589289}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8454503529014236352}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &2454469367970047752
 SkinnedMeshRenderer:
@@ -544,16 +544,16 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1152439916726096503, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -4035137881761584137, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -8516121517230340641, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -8108050154573044212, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 8108125881065328696, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 3170531198488047425, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -3743634840507758418, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 6247021370128362802, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: -1625185324143082723, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
-  - {fileID: 3498555632019112618, guid: 7427eeb79807a5a478050882c52e7854, type: 3}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
+  - {fileID: 2100000, guid: ddcabf0067518d745b6059b8ffe42579, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1184,7 +1184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8454503529014236352}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7011641163241131413
 SkinnedMeshRenderer:
@@ -2109,8 +2109,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8171364138726976814}
   - {fileID: 5811810560237967343}
+  - {fileID: 8171364138726976814}
   - {fileID: 4108475722180359252}
   - {fileID: 8277289934519090290}
   m_Father: {fileID: 0}
@@ -2194,6 +2194,12 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   zombieAnimator: {fileID: 0}
   speed: 5
-  zombieHealth: 10
+  zombieHealth: 20
   target: {fileID: 0}
   timeBetweenAttacks: 0.5
+  startColor: {r: 1, g: 0, b: 0, a: 1}
+  endColor: {r: 0.23529413, g: 0.23529413, b: 0.23529413, a: 1}
+  colorSpeed: 0
+  startTime: 0
+  isDead: 0
+  mat: []

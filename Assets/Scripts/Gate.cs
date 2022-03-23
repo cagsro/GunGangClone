@@ -50,11 +50,16 @@ public class Gate : MonoBehaviour
             {
                 for (int i = 1; i <= value; i++)
                 {
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().isDead=true;
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().isShooting=false;
                     WaitPos.instance.enemyList[i].GetComponent<Enemy>().speed=0f;
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().colorSpeed=0.5f;
                     WaitPos.instance.enemyList[i].transform.parent=null;
                     WaitPos.instance.enemyList[i].GetComponent<Animator>().SetTrigger("Fall");
-                    Destroy(WaitPos.instance.enemyList[i].gameObject,1.5f);
+                    Destroy(WaitPos.instance.enemyList[i].gameObject,4f);
                     WaitPos.instance.enemyList.RemoveAt(i);
+                    
+                    
                 }
             }
             if (operation == "*")
@@ -78,13 +83,16 @@ public class Gate : MonoBehaviour
             if (operation == "/")
             {
                 int x = (WaitPos.instance.enemyList.Count) - ((WaitPos.instance.enemyList.Count) / value);
-                Debug.Log("b�lme" + x);
-                for (int i = 1; i <= x; i++)
+                Debug.Log("bolme" + x);
+                for (int i = 1; i < x; i++)
                 {
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().isDead=true;
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().isShooting=false;
                     WaitPos.instance.enemyList[i].GetComponent<Enemy>().speed=0f;
+                    WaitPos.instance.enemyList[i].GetComponent<Enemy>().colorSpeed=0.5f;
                     WaitPos.instance.enemyList[i].GetComponent<Animator>().SetTrigger("Fall");
                     WaitPos.instance.enemyList[i].transform.parent=null;
-                    Destroy(WaitPos.instance.enemyList[i].gameObject,1.5f);
+                    Destroy(WaitPos.instance.enemyList[i].gameObject,4f);
                     WaitPos.instance.enemyList.RemoveAt(i);
                 }
             }

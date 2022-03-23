@@ -15,17 +15,36 @@ public class Player : MonoBehaviour
     public float speed=1f;
     public float playerHealth = 5f;
     public Animator playerAnimator;
+
+    public Color startColor;
+    public Color endColor;
+    public float colorSpeed=0f;
+    public float startTime=0f;
+    public bool isDead;
+    public Material[] mat;
+    public bool isShooting=true;
     
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator=GetComponent<Animator>();
-        InvokeRepeating("Shoot", 0f,1f);
+        StartCoroutine(Shoot());
+        mat = GetComponentInChildren<SkinnedMeshRenderer>().materials;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (isDead)
+        {
+            for(int i=0;i<10;i++)
+            {
+                float t=(Time.time-startTime)*colorSpeed;
+                mat[i].color=Color.Lerp(startColor,endColor,t);
+            }
+        }
+
         if(FinishPad.isGameEnded)
         {
             speed=4f;
@@ -40,12 +59,18 @@ public class Player : MonoBehaviour
             playerAnimator.SetTrigger("Idle");
         }
     }
-    void Shoot()
+    IEnumerator Shoot()
     {
-        clone= Instantiate(bullet, firePosition.position, firePosition.rotation);
-        cloneRB=clone.GetComponent<Rigidbody>();
-        cloneRB.AddForce(clone.transform.forward*3000f);
-        Destroy(clone.gameObject,0.4f);
+        while (isShooting)
+        {
+            yield return new WaitForSeconds(0.7f);
+
+            clone= Instantiate(bullet, firePosition.position, firePosition.rotation);
+            cloneRB=clone.GetComponent<Rigidbody>();
+            cloneRB.AddForce(clone.transform.forward*3000f);
+            Destroy(clone.gameObject,0.4f);
+        }
+        
 
     }
     void OnDrawGizmos()
@@ -64,11 +89,16 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage()
     {
-        playerHealth--;
+        playerHealth=0f;
         if(playerHealth<=0)
         {
-            Destroy(this.gameObject);
+            isDead=true;
+            isShooting=false;
+            colorSpeed=0.5f;
+            playerAnimator.SetTrigger("Die");
             WaitPos.instance.enemyList.Remove(this.gameObject);
+            Destroy(this.gameObject,4f);
+            
         }
     }
 }

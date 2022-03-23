@@ -387,8 +387,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1452778721508123928}
   - {fileID: 3884486648645951449}
+  - {fileID: 1452778721508123928}
   - {fileID: 6650679797409348706}
   - {fileID: 1698171210956661111}
   m_Father: {fileID: 0}
@@ -468,6 +468,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94bb4c650a9a0f429f06146faccb448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
+  startColor: {r: 0, g: 0, b: 1, a: 1}
+  endColor: {r: 0.23529413, g: 0.23529413, b: 0.23529413, a: 1}
+  colorSpeed: 1
+  startTime: 0
   enemyWaitPos: {fileID: 0}
   firePosition: {fileID: 1698171210956661111}
   clone: {fileID: 0}
@@ -724,7 +729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1160702496281009398}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &288670808823137699
 SkinnedMeshRenderer:
@@ -1348,11 +1353,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4794653172655449311}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1160702496281009398}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5143053659554033470
 SkinnedMeshRenderer:

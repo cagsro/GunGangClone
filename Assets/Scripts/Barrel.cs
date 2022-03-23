@@ -8,6 +8,8 @@ public class Barrel : MonoBehaviour
 {
     public float health;
     public float lerpValue;
+    //public Material mat;
+    
     
 
     public GameObject barrel;
@@ -47,6 +49,7 @@ public class Barrel : MonoBehaviour
         }
         if (other.transform.tag == "Player")
         {
+            //mat=other.GetComponentInChildren<Material>();
             WaitPos.instance.enemyList.Remove(other.gameObject);
             Debug.Log("Barrel");
             Destroy(other.gameObject);
